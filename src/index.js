@@ -9,7 +9,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 moment.locale('zh-cn');
 ReactDOM.render(
-<BrowserRouter basename="/admin">
+<BrowserRouter>
 <App />
 </BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();

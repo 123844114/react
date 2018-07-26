@@ -10,5 +10,8 @@ var listSchema = new mongoose.Schema({
         type: Date,
         default: Date.now}, //发布日期
     image:{type:String}, //海报
+    description:{type:String},//描述
+    info:{type:String},
+    sales:{type:Number},
    });
    module.exports = listSchema;

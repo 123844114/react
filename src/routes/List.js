@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import { Table, Icon, Divider } from 'antd';
+import { Table, Divider } from 'antd';
   
  class List extends Component {
      constructor(props){
@@ -9,12 +9,7 @@ import { Table, Icon, Divider } from 'antd';
      }
 
      componentWillMount(){
-        axios.get('http://localhost:3000/list',{
-                    params: {
-                      id: 12345
-                    }
-                  }).then(({data})=>{
-                    console.log(data);
+        axios.get('http://localhost:3000/list').then(({data})=>{
                     this.setState({data:data});
                 })
      }
@@ -33,6 +28,9 @@ import { Table, Icon, Divider } from 'antd';
     title: '图片',
     dataIndex: 'image',
     key: 'image',
+    render:(text, record)=>(
+      <img src={require('../'+text)} alt = '' style={{width:'40px', height:'40px'}}/>
+    ),
   }, {
     title: '时间',
     dataIndex: 'addtime',
@@ -42,12 +40,10 @@ import { Table, Icon, Divider } from 'antd';
     key: 'action',
     render: (text, record) => (
       <span>
-        <a href="">Action 一 {record.name}</a>
+        <a href="">删除</a>
         <Divider type="vertical" />
-        <a href="">Delete</a>
-        <Divider type="vertical" />
-        <a href="" className="ant-dropdown-link">
-          More actions <Icon type="down" />
+        <a href="">
+          编辑
         </a>
       </span>
     ),
