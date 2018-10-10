@@ -37,6 +37,7 @@ class Home extends Component{
     }
     render(){
         let {data} = this.state;
+        console.log(data)
         return (
             <div className="gutter-example">
                 <Row gutter={0}>

@@ -51,7 +51,7 @@ router.all('*', function(req, res, next) {
   });
   //home页面
   router.get('/home',(req, res, next)=>{
-    var tj = {}//查询条件
+    var tj = {'image':{$exists: 1}}//查询条件
     var zd = {image:1,info:1,sales:1}//查询字段
     List.find(tj,zd,(err,data)=>{
       if(err){
